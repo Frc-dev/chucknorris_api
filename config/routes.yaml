@@ -1,0 +1,7 @@
+index:
+    path: /
+    controller: App\Controller\IndexController::index
+
+get_categories:
+    path: /categories
+    controller: App\Controller\SearchController::getCategories
