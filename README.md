@@ -6,8 +6,7 @@ comunicarme con JS donde uso jQuery para realizar las peticiones mediante AJAX a
 se valora aquí es el back.
 
 El back está estructurado mediante una arquitectura hexagonal, siendo el punto de entrada los Controllers mediante las rutas definidas en routing.yaml, que recibirán
-el request del front, estos se comunican con Buses (CQRS) usando Queries y Handlers para comunicarse con la capa de Aplicación, en la cual tenemos englobado bajo el bounded
-context "Search" las acciones que pertenecen a este dominio. Explicar el funcionamiento específico de todas las acciones sería demasiado largo, así que haré un 
+el request del front, estos se comunican con Buses (CQRS) usando Queries y Handlers para comunicarse con la capa de Aplicación, en la cual tenemos englobado bajo el módulo "Search" las acciones que pertenecen a este dominio. Explicar el funcionamiento específico de todas las acciones sería demasiado largo, así que haré un 
 resumen de las partes mas genéricas de la aplicación.
 
 Al entrar en una de las acciones (las cuales tienen las dependencias inyectadas en el constructor), normalmente usaremos el ApiRequest, que es nuestro punto de 
