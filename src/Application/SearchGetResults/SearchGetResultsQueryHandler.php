@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace App\Application\SearchMovePage;
+namespace App\Application\SearchGetResults;
 
 use App\Domain\Bus\Query\QueryHandler;
 
-class SearchMovePageQueryHandler implements QueryHandler
+class SearchGetResultsQueryHandler implements QueryHandler
 {
-    private $searchMovePage;
+    private SearchGetResults $searchMovePage;
 
     public function __construct(
-        SearchMovePage $searchMovePage
+        SearchGetResults $searchMovePage
     )
     {
         $this->searchMovePage = $searchMovePage;
     }
 
-    public function __invoke(SearchMovePageQuery $query): array
+    public function __invoke(SearchGetResultsQuery $query): array
     {
         $offset = $query->getOffset();
         $limit = $query->getLimit();

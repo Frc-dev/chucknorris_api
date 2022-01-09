@@ -17,7 +17,8 @@ class WordSearchQueryHandlerTest extends SearchUnitTestCase
         $this->handler = new WordSearchQueryHandler(
             new WordSearch(
                 $this->apiRequest(),
-                $this->eventBus()
+                $this->eventBus(),
+                $this->searchResultMapper()
             )
         );
     }
@@ -25,9 +26,11 @@ class WordSearchQueryHandlerTest extends SearchUnitTestCase
     /** @test */
     public function should_get_word_result()
     {
-        $result = ['query'];
+
+        $result = ['result' => ['query']];
         $query = WordSearchQueryMother::create('word');
         $this->shouldReturnWordedSearch($result);
+        $this->shouldMapSearchResults($result);
         $this->shouldDispatchDomainEvent(SearchWasCreatedMother::create($result));
 
         $this->assertEquals($result, $this->handler->__invoke($query));
@@ -51,9 +54,10 @@ class WordSearchQueryHandlerTest extends SearchUnitTestCase
     )
     {
         $word = filter_var($invalidWord, FILTER_SANITIZE_STRING);
-        $result = [$word];
+        $result = ['result' => [$word]];
         $query = WordSearchQueryMother::create($invalidWord);
         $this->shouldReturnWordedSearch($result);
+        $this->shouldMapSearchResults($result);
         $this->shouldDispatchDomainEvent(SearchWasCreatedMother::create($result));
 
         $this->assertEquals($result, $this->handler->__invoke($query));

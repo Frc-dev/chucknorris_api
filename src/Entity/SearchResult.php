@@ -12,9 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class SearchResult
 {
-    /** @ORM\Id @ORM\Column(type="string") */
+    /** @ORM\Id @ORM\Column(type="string", name="result_id") */
     private $resultId;
-    /** @ORM\Column(type="string", name="search_id") */
+    /** @ORM\Id @ORM\Column(type="string", name="search_id") */
     private $searchId;
     /** @ORM\Column(type="array") */
     private $categories;
@@ -47,7 +47,7 @@ class SearchResult
             $result['id'],
             $searchId,
             $result['categories'],
-            $result['created_at'],
+            new \DateTimeImmutable($result['created_at']),
             $result['value']
         );
     }

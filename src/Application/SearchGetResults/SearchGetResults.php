@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Application\SearchMovePage;
+namespace App\Application\SearchGetResults;
 
 use App\Domain\SearchRepository;
 
-class SearchMovePage
+class SearchGetResults
 {
     private SearchRepository $repository;
 

@@ -19,7 +19,6 @@ class SearchStoreOnSearchWasCreated
 
     public function __invoke(array $results): void
     {
-        dd('mate are you even entering here????');
         $this->searchRepository->save($results);
     }
 }

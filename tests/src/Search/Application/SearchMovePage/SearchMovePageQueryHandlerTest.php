@@ -2,8 +2,8 @@
 
 namespace App\Tests\src\Search\Application\SearchMovePage;
 
-use App\Application\SearchMovePage\SearchMovePage;
-use App\Application\SearchMovePage\SearchMovePageQueryHandler;
+use App\Application\SearchGetResults\SearchGetResults;
+use App\Application\SearchGetResults\SearchGetResultsQueryHandler;
 use App\Tests\src\Search\Domain\SearchMovePageQueryMother;
 use App\Tests\src\Search\Domain\SearchUnitTestCase;
 
@@ -14,8 +14,8 @@ class SearchMovePageQueryHandlerTest extends SearchUnitTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->handler = new SearchMovePageQueryHandler(
-            new SearchMovePage(
+        $this->handler = new SearchGetResultsQueryHandler(
+            new SearchGetResults(
                 $this->repository()
             )
         );

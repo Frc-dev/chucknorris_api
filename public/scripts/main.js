@@ -17,7 +17,7 @@ function ajaxCall(link, values) {
 function processCategorySearch(category) {
     ajaxCall('/search/category/' + category).done(function (response) {
         if (response !== undefined) {
-            setSearchId(response.searchId)
+            setSearchId(response[0].searchId)
             $("#resultBox").empty();
 
             response.forEach(function(item) {
@@ -30,17 +30,17 @@ function processCategorySearch(category) {
 function processRandomSearch() {
     ajaxCall('/search/random').done(function (response) {
         if (response !== undefined) {
-            setSearchId(response.searchId)
+            setSearchId(response[0].searchId)
             $("#resultBox").empty();
 
-            printJSONResult(response)
+            printJSONResult(response[0])
         }
     });
 }
 
 function processWordSearch() {
     let text = $("#searchBar").val();
-    if (text !== undefined) {
+    if (text) {
         ajaxCall('/search/'+ text).done(function (response) {
             if (response !== undefined) {
                 currentOffset = 0;
@@ -91,7 +91,6 @@ function processPagination(direction) {
             limit: currentLimit,
             searchId: currentSearchId
         };
-        console.log(currentSearchId)
 
         ajaxCall('/search', values).done(function (response) {
             if (response !== undefined) {
@@ -104,9 +103,26 @@ function processPagination(direction) {
         });
 }
 
-function changeLocale(language){
+function mailPage() {
+    let text = $("#mailBar").val();
+    if (text && currentSearchId) {
+        let values = {
+            offset: currentOffset,
+            limit: currentLimit,
+            searchId: currentSearchId,
+            address: text
+        };
+        ajaxCall('/mail', values).done(function (response) {
+            $("#mailResponse").empty()
+            if (response.success !== undefined) {
 
-    ajaxCall('/'+ language).done(function (response) {});
+            } else {
+                $("#mailBox").append(
+                    "<div id='mailResponse'>"+response.error+"</div>"
+                )
+            }
+        });
+    }
 }
 
 ajaxCall('/categories').done(function (response) {
@@ -143,11 +159,7 @@ $(document).ready(function () {
         processPagination('next')
     });
 
-    $(document).on('click', '#locale_es', function () {
-        changeLocale('es')
-    });
-
-    $(document).on('click', '#locale_en', function () {
-        changeLocale('en')
+    $(document).on('click', '#mailButton', function () {
+        mailPage()
     });
 });

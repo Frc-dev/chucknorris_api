@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="FC3cnKO" resname="Chuck Norris Facts">
+        <source>Chuck Norris Facts</source>
+        <target>Hechos sobre Chuck Norris</target>
+      </trans-unit>
+      <trans-unit id="G1Rqekq" resname="Search any words...">
+        <source>Search any words...</source>
+        <target>Busca cualquier palabra...</target>
+      </trans-unit>
+      <trans-unit id="ScJmuqq" resname="Search">
+        <source>Search</source>
+        <target>Búsqueda</target>
+      </trans-unit>
+      <trans-unit id="rCHcXBJ" resname="Give me a random fact!">
+        <source>Give me a random fact!</source>
+        <target>Enséñame cualquier hecho!</target>
+      </trans-unit>
+      <trans-unit id="t8lnnL5" resname="Input your email...">
+        <source>Input your email...</source>
+        <target>Introduce tu email...</target>
+      </trans-unit>
+      <trans-unit id="gm3MtFz" resname="Send this page to my mail!">
+        <source>Send this page to my mail!</source>
+        <target>Envía esta página a mi correo!</target>
+      </trans-unit>
+      <trans-unit id="vFCURyP" resname="Hi,">
+        <source>Hi</source>
+        <target>Hola </target>
+      </trans-unit>
+      <trans-unit id="tR49ILr" resname="Here are your Chuck Norris facts, as you requested!">
+        <source>Here are your Chuck Norris facts, as you requested!</source>
+        <target>Aqui están tus hechos sobre Chuck Norris, tal como pediste!</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

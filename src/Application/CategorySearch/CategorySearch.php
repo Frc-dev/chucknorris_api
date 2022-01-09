@@ -7,7 +7,6 @@ namespace App\Application\CategorySearch;
 use App\ApiRequest;
 use App\Domain\DomainEvent\SearchWasCreated;
 use App\Domain\SearchResultMapper;
-use App\Entity\SearchResult;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 class CategorySearch

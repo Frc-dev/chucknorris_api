@@ -16,10 +16,4 @@ abstract class DomainError extends DomainException
     abstract public function errorCode(): string;
 
     abstract protected function errorMessage(): string;
-
-    public function getMetadata(): array
-    {
-        return [
-        ];
-    }
 }

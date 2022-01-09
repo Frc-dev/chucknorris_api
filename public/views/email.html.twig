@@ -1,0 +1,11 @@
+<h1>    {{ 'Hi' | trans}}! </h1>
+
+<p>
+    {{'Here are your Chuck Norris facts, as you requested!'| trans }}
+</p>
+
+<table>
+    {% for item in messageList %}
+        <li>{{ item['value'] }}</li>
+    {% endfor %}
+</table>

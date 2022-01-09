@@ -10,7 +10,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class ApiRequest
 {
-    private $client;
+    private HttpClientInterface $client;
 
     public function __construct(
         HttpClientInterface $client

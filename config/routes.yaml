@@ -18,6 +18,10 @@ word_search:
     path: /search/{word}
     controller: App\Controller\SearchController::wordSearch
 
-move_page:
+search_get_results:
     path: /search
-    controller: App\Controller\SearchController::searchMovePage
+    controller: App\Controller\SearchController::searchGetResults
+
+mail_page:
+    path: /mail
+    controller: App\Controller\SearchController::mailPage

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\src\Search\Domain;
 
-use App\Application\SearchMovePage\SearchMovePageQuery;
+use App\Application\SearchGetResults\SearchGetResultsQuery;
 
 class SearchMovePageQueryMother
 {
@@ -12,9 +12,9 @@ class SearchMovePageQueryMother
         int $limit,
         int $offset,
         string $searchId
-    ): SearchMovePageQuery
+    ): SearchGetResultsQuery
     {
-        return new SearchMovePageQuery(
+        return new SearchGetResultsQuery(
             $limit,
             $offset,
             $searchId

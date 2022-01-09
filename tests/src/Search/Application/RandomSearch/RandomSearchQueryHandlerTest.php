@@ -8,6 +8,7 @@ use App\Application\RandomSearch\RandomSearch;
 use App\Application\RandomSearch\RandomSearchQueryHandler;
 use App\Tests\src\Search\Domain\RandomSearchQueryMother;
 use App\Tests\src\Search\Domain\SearchUnitTestCase;
+use App\Tests\src\Search\Domain\SearchWasCreatedMother;
 
 class RandomSearchQueryHandlerTest extends SearchUnitTestCase
 {
@@ -19,7 +20,9 @@ class RandomSearchQueryHandlerTest extends SearchUnitTestCase
 
         $this->handler = new RandomSearchQueryHandler(
             new RandomSearch(
-                $this->apiRequest()
+                $this->apiRequest(),
+                $this->searchResultMapper(),
+                $this->eventBus()
             )
         );
     }
@@ -27,10 +30,12 @@ class RandomSearchQueryHandlerTest extends SearchUnitTestCase
     /** @test */
     public function should_get_random_result()
     {
-        $result = 'query';
+        $result = ['query'];
         $query = RandomSearchQueryMother::create();
         $this->shouldReturnRandomResult($result);
+        $this->shouldMapSearchResults($result);
+        $this->shouldDispatchDomainEvent(SearchWasCreatedMother::create($result));
 
-        $this->assertEquals('query', $this->handler->__invoke($query));
+        $this->assertEquals(['query'], $this->handler->__invoke($query));
     }
 }

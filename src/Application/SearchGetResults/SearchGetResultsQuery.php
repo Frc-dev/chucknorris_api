@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Application\SearchMovePage;
+namespace App\Application\SearchGetResults;
 
 use App\Domain\Bus\Query\Query;
 
-class SearchMovePageQuery implements Query
+class SearchGetResultsQuery implements Query
 {
     private int $offset;
     private int $limit;
