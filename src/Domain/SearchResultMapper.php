@@ -10,11 +10,11 @@ use function Lambdish\Phunctional\map;
 
 class SearchResultMapper
 {
-    public function __invoke(array $result): array
+    public function __invoke(array $result, string $searchType): array
     {
         $searchId = Uuid::uuid4()->toString();
-        $mapper = static function (array $result) use ($searchId) {
-            return SearchResult::fromRawResult($result, $searchId);
+        $mapper = static function (array $result) use ($searchType, $searchId) {
+            return SearchResult::fromRawResult($result, $searchId, $searchType);
         };
 
         return map($mapper, $result);

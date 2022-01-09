@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 use App\Domain\DomainError\WrongCategoryException;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
@@ -60,6 +61,10 @@ class ApiRequest
         } catch (\Exception $e) {
             if ($e->getCode() === 404) {
                 throw new NotFoundHttpException();
+            }
+
+            if($e->getCode() === 400) {
+                throw new BadRequestHttpException();
             }
         }
 

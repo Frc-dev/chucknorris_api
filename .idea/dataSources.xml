@@ -8,7 +8,7 @@
       <jdbc-url>jdbc:mysql://localhost:3306/inspiring_prueba</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="inspiring_prueba_test_test@localhost" uuid="f978880a-3ebb-431b-82aa-cdf19e09d09b">
+    <data-source source="LOCAL" name="inspiring_prueba_test_test@localhost" uuid="d73e122f-9e27-4998-9396-7f00d08cc714">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

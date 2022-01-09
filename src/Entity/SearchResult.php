@@ -22,13 +22,16 @@ class SearchResult
     private $created_at;
     /** @ORM\Column(type="string") */
     private $value;
+    /** @ORM\Column(type="string") */
+    private $type;
 
     public function __construct(
         $resultId,
         $searchId,
         $categories,
         $created_at,
-        $value
+        $value,
+        $type
     )
     {
         $this->resultId = $resultId;
@@ -36,11 +39,13 @@ class SearchResult
         $this->categories = $categories;
         $this->created_at = $created_at;
         $this->value = $value;
+        $this->type = $type;
     }
 
     public static function fromRawResult(
         array $result,
-        string $searchId
+        string $searchId,
+        string $searchType
     ): SearchResult
     {
         return new self(
@@ -48,7 +53,8 @@ class SearchResult
             $searchId,
             $result['categories'],
             new \DateTimeImmutable($result['created_at']),
-            $result['value']
+            $result['value'],
+            $searchType
         );
     }
 
@@ -90,5 +96,13 @@ class SearchResult
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

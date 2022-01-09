@@ -29,7 +29,8 @@ class RandomSearch
     public function __invoke(): array
     {
         $rawResult = [$this->apiRequest->randomApiCall()];
-        $resultCollection = $this->mapper->__invoke($rawResult);
+        $searchTerm = "random";
+        $resultCollection = $this->mapper->__invoke($rawResult, $searchTerm);
 
         $event = new SearchWasCreated($resultCollection);
         $this->eventBus->dispatch($event);

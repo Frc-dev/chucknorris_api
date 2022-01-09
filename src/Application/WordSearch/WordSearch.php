@@ -26,11 +26,13 @@ class WordSearch
         $this->mapper = $mapper;
     }
 
-    public function __invoke(string $word): array
+    public function __invoke(string$word): array
     {
         $word = filter_var($word, FILTER_SANITIZE_STRING);
         $results = $this->apiRequest->wordSearchCall($word);
-        $resultCollection = $this->mapper->__invoke($results['result']);
+
+        $searchTerm = "search:". $word;
+        $resultCollection = $this->mapper->__invoke($results['result'], $searchTerm);
 
 
         $event = new SearchWasCreated($resultCollection);

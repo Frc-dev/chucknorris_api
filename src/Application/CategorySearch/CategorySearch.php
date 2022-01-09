@@ -29,7 +29,7 @@ class CategorySearch
     public function __invoke(string $category): array
     {
         $rawResult = [$this->apiRequest->categorySearchCall($category)];
-        $resultCollection = $this->mapper->__invoke($rawResult);
+        $resultCollection = $this->mapper->__invoke($rawResult, $category);
 
         $event = new SearchWasCreated($resultCollection);
         $this->eventBus->dispatch($event);

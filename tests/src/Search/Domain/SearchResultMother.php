@@ -14,7 +14,8 @@ class SearchResultMother
         string $searchId,
         array $categories,
         \DateTimeImmutable $created_at,
-        string $value
+        string $value,
+        string $type
     ): SearchResult
     {
         return new SearchResult(
@@ -22,7 +23,8 @@ class SearchResultMother
             $searchId,
             $categories,
             $created_at,
-            $value
+            $value,
+            $type
         );
     }
 
@@ -33,7 +35,8 @@ class SearchResultMother
             '1234',
             $results['categories'],
             new \DateTimeImmutable($results['created_at']),
-            $results['value']
+            $results['value'],
+            'animal'
         );
     }
 
@@ -44,7 +47,8 @@ class SearchResultMother
             '1234',
             ['animal'],
             new \DateTimeImmutable(),
-            'chuck norris creo el oceano atlántico de una patada voladora tras tener una mala experiencia en portugal'
+            'chuck norris creo el oceano atlántico de una patada voladora tras tener una mala experiencia en portugal',
+            'animal'
         );
     }
 }
