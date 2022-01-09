@@ -19,6 +19,6 @@ class CategoryGetQueryHandler implements QueryHandler
 
     public function __invoke(CategoryGetQuery $categoryGetQuery): array
     {
-        return $this->categoryGet->__invoke();
+        return $this->categoryGet->__invoke()->getCategoryList();
     }
 }

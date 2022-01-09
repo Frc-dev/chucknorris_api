@@ -6,9 +6,7 @@ namespace App\Controller;
 
 
 use App\Domain\Bus\Command\Command;
-use App\Domain\Bus\Command\CommandBus;
 use App\Domain\Bus\Query\Query;
-use App\Domain\Bus\Query\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 abstract class ApiController extends AbstractController

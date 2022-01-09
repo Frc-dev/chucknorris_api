@@ -5,3 +5,19 @@ index:
 get_categories:
     path: /categories
     controller: App\Controller\SearchController::getCategories
+
+category_search:
+    path: /search/category/{category}
+    controller: App\Controller\SearchController::categorySearch
+
+random_search:
+    path: /search/random
+    controller: App\Controller\SearchController::randomSearch
+
+word_search:
+    path: /search/{word}
+    controller: App\Controller\SearchController::wordSearch
+
+move_page:
+    path: /search
+    controller: App\Controller\SearchController::searchMovePage

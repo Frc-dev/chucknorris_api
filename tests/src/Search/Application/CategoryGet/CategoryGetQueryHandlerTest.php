@@ -4,6 +4,7 @@ namespace App\Tests\src\Search\Application\CategoryGet;
 
 use App\Application\CategoryGet\CategoryGet;
 use App\Application\CategoryGet\CategoryGetQueryHandler;
+use App\Tests\src\Search\Domain\CategoryGetQueryMother;
 use App\Tests\src\Search\Domain\SearchUnitTestCase;
 
 class CategoryGetQueryHandlerTest extends SearchUnitTestCase
@@ -21,10 +22,10 @@ class CategoryGetQueryHandlerTest extends SearchUnitTestCase
     /** @test */
     public function should_get_category_list()
     {
-        $result = 'query';
+        $query = CategoryGetQueryMother::create();
+        $result = ['query'];
         $this->shouldReturnCategoryList($result);
 
-        $result = $this->handler->__invoke();
-        $this->assertEquals('query', $result);
+        $this->assertEquals($result, $this->handler->__invoke($query));
     }
 }

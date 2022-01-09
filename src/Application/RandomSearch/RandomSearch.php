@@ -17,7 +17,7 @@ class RandomSearch
         $this->apiRequest = $apiRequest;
     }
 
-    public function __invoke(): string
+    public function __invoke(): array
     {
         return $this->apiRequest->randomApiCall();
     }

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\RandomSearch;
 
-use App\Domain\Bus\Command\CommandHandler;
+use App\Domain\Bus\Query\QueryHandler;
 
-class RandomSearchCommandHandler implements CommandHandler
+class RandomSearchQueryHandler implements QueryHandler
 {
     private RandomSearch $randomQuery;
 
@@ -17,7 +17,7 @@ class RandomSearchCommandHandler implements CommandHandler
         $this->randomQuery = $randomQuery;
     }
 
-    public function __invoke(RandomSearchCommand $command): string
+    public function __invoke(RandomSearchQuery $query): array
     {
         return $this->randomQuery->__invoke();
     }

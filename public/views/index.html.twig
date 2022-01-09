@@ -2,13 +2,29 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Lando Norris facts</title>
+        <title>{% trans %}Chuck Norris Facts{% endtrans %}</title>
         <meta name="description" content="A simple HTML5 Template for new projects.">
         <meta name="author" content="ass">
         <link href="{{ asset('styles/main.css') }}" rel="stylesheet"/>
     </head>
     <body>
-        <div id="title">Chuck Norris Facts</div>
+        <div id="topnav">
+            <div id="title">Chuck Norris Facts</div>
+            <label for="searchBar"></label><input type="text" id="searchBar" placeholder="Search any words...">
+            <button id="searchButton">Search</button>
+            <button id="randomButton">Give me a random fact!</button>
+            <button id="locale_es">Español</button>
+            <button id="locale_en">English</button>
+        </div>
+        <div id="categoryList"></div>
+        <div id="resultBox"></div>
+        <div id="paginationBox">
+        </div>
+        <div id="mailBox">
+            <label for="mailBar"></label><input type="text" id="mailBar" placeholder="Input your email...">
+            <button id="mailButton">Send this search to my mail!</button>
+        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="{{ asset('scripts/main.js') }}"></script>
     </body>

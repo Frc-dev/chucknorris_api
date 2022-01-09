@@ -17,8 +17,8 @@ class CategoryGet
         $this->apiRequest = $apiRequest;
     }
 
-    public function __invoke(): array
+    public function __invoke(): CategoryGetResponse
     {
-        return $this->apiRequest->categoryListCall();
+        return new CategoryGetResponse($this->apiRequest->categoryListCall());
     }
 }
